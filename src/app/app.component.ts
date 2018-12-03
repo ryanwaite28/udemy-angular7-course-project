@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'course-project-app';
+  currentScreen = 'recipe';
+
+  onNavigate(screen: string){
+    this.currentScreen = screen;
+  }
 }
