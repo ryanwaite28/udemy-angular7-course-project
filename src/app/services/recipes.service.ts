@@ -1,4 +1,4 @@
-import { Injectable, EventEmitter, Output } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { RecipeModel } from '../recipes/recipe.model';
 import { IngredientModel } from '../shared/ingredient.model';
 
@@ -6,8 +6,6 @@ import { IngredientModel } from '../shared/ingredient.model';
   providedIn: 'root'
 })
 export class RecipesService {
-  @Output() recipeSelected: EventEmitter<RecipeModel> = new EventEmitter<RecipeModel>();
-
   private recipes: RecipeModel[] = [
     new RecipeModel(
       'Chicken noodle',
@@ -40,5 +38,9 @@ export class RecipesService {
 
   getRecipes(): RecipeModel[] {
     return this.recipes.slice();
+  }
+
+  getRecipeByIndex(index: number): RecipeModel {
+    return this.recipes.slice()[index];
   }
 }
