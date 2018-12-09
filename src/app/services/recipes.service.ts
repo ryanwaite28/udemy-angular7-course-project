@@ -13,7 +13,7 @@ export class RecipesService {
     new RecipeModel(
       'Chicken noodle',
       'Campbell Chicken Noodle Soup',
-      'http://lh3.googleusercontent.com/Ri1Y6MYXMpzZfFV21' +
+      'https://lh3.googleusercontent.com/Ri1Y6MYXMpzZfFV21' +
       'rS5UQo9_4Dwa9itIHNouymzrTG-Q6mX7_4OX6EpERf7i4sxJx-' +
       '9a43WZYsz0zEPZFtZy3w8KyuW7znfV6GMyg=w600-l68',
       [
@@ -38,7 +38,7 @@ export class RecipesService {
     new RecipeModel(
       'Burher King - Whopper',
       'The best burger ever invented...',
-      'http://bk-apac-prd.s3.amazonaws.com/' +
+      'https://bk-apac-prd.s3.amazonaws.com/' +
       'sites/burgerking.co.nz/files/BUR1678' +
       '-BBQ-Bacon-thumbnail-500x400-v01_0.png',
       [
