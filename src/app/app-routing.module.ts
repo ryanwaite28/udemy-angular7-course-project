@@ -1,3 +1,4 @@
+import { RecipeExistsActivator } from './_activators/RecipeExists.activator';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { RecipesComponent } from './recipes/recipes.component';
@@ -14,7 +15,10 @@ const app_routes: Routes = [
     { path: 'recipes', component: RecipesComponent, children: [
         { path: '', component: RecipeStartComponent },
         { path: 'create', component: RecipeEditComponent },
-        { path: ':id', component: RecipeDetailComponent, resolve: { recipe: RecipeResolver } },
+        { path: ':id', component: RecipeDetailComponent,
+            // canActivate: [RecipeExistsActivator],
+            resolve: { recipe: RecipeResolver }
+        },
         { path: ':id/edit', component: RecipeEditComponent, resolve: { recipe: RecipeResolver } }
     ] },
     { path: 'shopping',  component: ShoppingListComponent },

@@ -1,3 +1,4 @@
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { IngredientModel } from '../../shared/ingredient.model';
 import { ShoppingListService } from 'src/app/services/shopping-list.service';
@@ -9,8 +10,10 @@ import { RecipesService } from 'src/app/services/recipes.service';
   styleUrls: ['./shopping-edit.component.css']
 })
 export class ShoppingEditComponent implements OnInit {
-  @ViewChild('nameInput') nameInput: ElementRef;
-  @ViewChild('amountInput') amountInput: ElementRef;
+  form: FormGroup = new FormGroup({
+    'name': new FormControl(null, [Validators.required]),
+    'amount': new FormControl(null, [Validators.required])
+  });
 
   constructor(private shoppingListService: ShoppingListService, private recipesService: RecipesService) { }
 
@@ -18,16 +21,13 @@ export class ShoppingEditComponent implements OnInit {
   }
 
   addItem() {
-    const name = this.nameInput.nativeElement.value;
-    const amount = Number(this.amountInput.nativeElement.value);
-    const ingredient = new IngredientModel(name, amount);
+    const { name, amount } = this.form.value;
+    const ingredient = new IngredientModel(name, +amount);
     this.shoppingListService.addIngredient(ingredient);
     this.clearForm();
   }
 
   clearForm() {
-    this.nameInput.nativeElement.value = '';
-    this.amountInput.nativeElement.value = '';
+    this.form.reset();
   }
-
 }

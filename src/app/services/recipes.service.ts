@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
 import { RecipeModel } from '../recipes/recipe.model';
 import { IngredientModel } from '../shared/ingredient.model';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RecipesService {
+  recipesChanged = new Subject<RecipeModel[]>();
+
   private recipes: RecipeModel[] = [
     new RecipeModel(
       'Chicken noodle',
@@ -30,17 +33,49 @@ export class RecipesService {
         new IngredientModel('Chicken Strips', 4),
         new IngredientModel('Sesame Seeds', 25),
         new IngredientModel('Lettuce', 8)
+      ],
+    ),
+    new RecipeModel(
+      'Burher King - Whopper',
+      'The best burger ever invented...',
+      'http://bk-apac-prd.s3.amazonaws.com/' +
+      'sites/burgerking.co.nz/files/BUR1678' +
+      '-BBQ-Bacon-thumbnail-500x400-v01_0.png',
+      [
+        new IngredientModel('Buns', 2),
+        new IngredientModel('Beef', 1),
+        new IngredientModel('Cheese', 1),
+        new IngredientModel('Bacon', 4),
+        new IngredientModel('Lettuce', 1),
+        new IngredientModel('Pickles', 5),
+        new IngredientModel('Onions', 3),
+        new IngredientModel('Tomatoes', 2)
       ]
     )
   ];
 
   constructor() { }
 
+  addRecipe(recipe: RecipeModel): number {
+    this.recipes.push(recipe);
+    this.recipesChanged.next(this.getRecipes());
+    return this.recipes.length - 1;
+  }
+
+  removeRecipe(id: number): void {
+    this.recipes.splice(id, 1);
+    this.recipesChanged.next(this.getRecipes());
+  }
+
   getRecipes(): RecipeModel[] {
     return this.recipes.slice();
   }
 
   getRecipeByIndex(index: number): RecipeModel {
-    return this.recipes.slice()[index];
+    return this.recipes.slice()[index] || null;
+  }
+
+  recipeExistsAtIndex(index: number): boolean {
+    return this.recipes.slice()[index] ? true : false;
   }
 }
