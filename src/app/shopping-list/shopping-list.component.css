@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 .text-red {
     color: red;
+=======
+span.delete-span {
+    color: red;
+    cursor: pointer;
+>>>>>>> 3a4a23a7e27212da548d3d1735588a61b56c5c83
 }

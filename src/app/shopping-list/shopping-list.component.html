@@ -7,10 +7,16 @@
       *ngFor="let ig of ingredients; let i = index"
         class="list-group-item"
         style="cursor: pointer;">
+<<<<<<< HEAD
         <span>{{ ig.name }} ({{ ig.amount }})</span> 
         <span class="pull-right" (click)="removeIngredient(i)">
           <a class="text-red" type="button">Delete</a>
         </span>
+=======
+        <span class="">{{ ig.name }} ({{ ig.amount }})</span> 
+        <span class="delete-span pull-right"
+          (click)="removeFromList(i)">Delete</span>
+>>>>>>> 3a4a23a7e27212da548d3d1735588a61b56c5c83
       </a>
     </ul>
   </div>

@@ -18,10 +18,10 @@ export class ShoppingListService {
 
   addIngredient(ingredient: IngredientModel) {
     this.ingredients.push(ingredient);
-    this.ingredientsChanged.next(this.ingredients.slice());
+    this.ingredientsChanged.next(this.getIngredients());
   }
 
-  addIngredientsBulk(ingredients: IngredientModel[]) {
+  addIngredientsBulk(ingredients: IngredientModel[]): void {
     for (const ingredient of ingredients) {
       const find = this.ingredients.filter(i => i.name.toLowerCase() === ingredient.name.toLowerCase())[0];
       const index = this.ingredients.findIndex(i => i.name.toLowerCase() === ingredient.name.toLowerCase());
@@ -36,11 +36,15 @@ export class ShoppingListService {
     this.ingredientsChanged.next(this.getIngredients());
   }
 
-  getIngredients() {
+  getIngredients(): IngredientModel[] {
     return this.ingredients.slice();
   }
 
+<<<<<<< HEAD
   removeIngredient(i) {
+=======
+  removeIngredient(i: number): void {
+>>>>>>> 3a4a23a7e27212da548d3d1735588a61b56c5c83
     this.ingredients.splice(i, 1);
     this.ingredientsChanged.next(this.getIngredients());
   }

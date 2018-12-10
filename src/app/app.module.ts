@@ -37,8 +37,8 @@ import { RecipeCreateComponent } from './recipes/recipe-create/recipe-create.com
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [
     ShoppingListService,
