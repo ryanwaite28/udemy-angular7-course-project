@@ -10,7 +10,8 @@ export class ShoppingListService {
 
   private ingredients: IngredientModel[] = [
     new IngredientModel('Apple', 5),
-    new IngredientModel('Pepper', 7)
+    new IngredientModel('Pepper', 7),
+    new IngredientModel('Tomato', 2)
   ];
 
   constructor() { }
@@ -37,5 +38,10 @@ export class ShoppingListService {
 
   getIngredients() {
     return this.ingredients.slice();
+  }
+
+  removeIngredient(i) {
+    this.ingredients.splice(i, 1);
+    this.ingredientsChanged.next(this.getIngredients());
   }
 }
