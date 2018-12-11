@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
@@ -43,7 +44,8 @@ import { RecipeCreateComponent } from './recipes/recipe-create/recipe-create.com
   providers: [
     ShoppingListService,
     RecipesService,
-    RecipeResolver
+    RecipeResolver,
+    HttpClient
   ],
   bootstrap: [AppComponent]
 })

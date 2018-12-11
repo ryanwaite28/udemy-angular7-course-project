@@ -1,36 +1,4 @@
 <div>
-<<<<<<< HEAD
-  <form (ngSubmit)="submitForm()" [formGroup]="form">
-    <div class="form-group">
-      <label for="">Name</label>
-      <input class="form-control" type="text" formControlName="name" name="name">
-    </div>
-    <div class="form-group">
-      <label for="">Description</label>
-      <textarea class="form-control" type="text" rows="5" formControlName="description" name="description"></textarea>
-    </div>
-    <div class="form-group">
-      <label for="">Image URL</label>
-      <input class="form-control" type="text" formControlName="image" name="image">
-    </div>
-    <div formArrayName="ingredients">
-      <p>Ingredients</p>
-      <div class="row" *ngFor="let ig of form.get('ingredients').controls; let i = index" [formGroupName]="i">
-        <div class="col-md-4">
-          <label for="">Name</label>
-          <input class="form-control" type="text" [formControlName]="i">
-        </div>
-        <div class="col-md-2">
-          <label for="">Amount</label>
-          <input class="form-control" type="text" [formControlName]="i">
-        </div>
-      </div>
-    </div>
-    <br/>
-    <button type="submit" class="btn btn-success">
-      {{ isEditing ? 'Edit' : 'Create' }}
-    </button>
-=======
   <form (ngSubmit)="submitForm()" [formGroup]="form" #f="ngForm">
     <h3>Recipe</h3>
     <div class="form-group">
@@ -91,6 +59,5 @@
         [disabled]="form.valid === false" 
         type="submit">{{ isEditing ? 'Save' : 'Create' }}</button>
     </div>
->>>>>>> 3a4a23a7e27212da548d3d1735588a61b56c5c83
   </form>
 </div>

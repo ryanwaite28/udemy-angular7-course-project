@@ -1,43 +1,30 @@
 <div class="row">
   <div class="col-md-12">
-<<<<<<< HEAD
-    <form (ngSubmit)="addIngredient()" #f="ngForm">
-=======
     <form (ngSubmit)="addItem()" [formGroup]="form">
->>>>>>> 3a4a23a7e27212da548d3d1735588a61b56c5c83
       <div class="row">
         <div class="col-md-6 form-group">
           <label for="name">Name</label>
-<<<<<<< HEAD
-          <input type="text" ngModel name="name" class="form-control" placeholder="Enter Name" required>
-=======
           <input
             formControlName="name"
             type="text" class="form-control" placeholder="Enter Name">
->>>>>>> 3a4a23a7e27212da548d3d1735588a61b56c5c83
         </div>
         <div class="col-md-4">
           <label for="amount">Amount</label>
-<<<<<<< HEAD
-          <input type="number" ngModel name="amount" class="form-control" placeholder="Enter Amount" required>
-=======
           <input
             formControlName="amount"
             type="number" class="form-control" placeholder="Enter Amount">
->>>>>>> 3a4a23a7e27212da548d3d1735588a61b56c5c83
         </div>
       </div>
       <div class="row">
         <div class="col-md-12">
-<<<<<<< HEAD
-          <button 
-            [disabled]="f.valid === false"
-            class="btn btn-success" type="submit">Add</button> &nbsp;
-          <button class="btn btn-primary" type="button" (click)="f.reset()">Clear</button>
-=======
-          <button class="btn btn-success" type="submit">Add</button> &nbsp;
+          <button class="btn btn-success" type="submit">{{ editMode ? 'Save' : 'Add' }}</button> &nbsp;
           <button class="btn btn-primary" type="button" (click)="clearForm()">Clear</button>
->>>>>>> 3a4a23a7e27212da548d3d1735588a61b56c5c83
+        </div>
+      </div>
+      <div class="row" *ngIf="editMode === true">
+        <br/>
+        <div class="col-md-12">
+          <h4>Editing</h4>
         </div>
       </div>
     </form>
