@@ -36,6 +36,7 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
   }
 
   addItem() {
+    if (this.form.valid === false) { return; }
     const { name, amount } = this.form.value;
     if (this.editMode === true) {
       this.editItem.name = name;
